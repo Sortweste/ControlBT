@@ -19,28 +19,59 @@
     />
   </LinearLayout>
 
-  <LinearLayout android:layout_width="wrap_content" android:layout_height="match_parent" android:orientation="vertical" android:layout_weight="1">
+  <android.support.constraint.ConstraintLayout android:layout_width="wrap_content" android:layout_height="match_parent"
+                                               android:orientation="vertical"
+                                               android:layout_weight="1">
     <Button
-            android:text="Encender"
-            android:layout_width="match_parent"
+            android:text="Arriba"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/IdEncender"/>
+            android:id="@+id/IdEncender"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="40dp" app:layout_constraintTop_toTopOf="parent"/>
     <Button
             android:text="Apagar"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/IdApagar"/>
-    <TextView
-            android:text="Dato:"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/IdBufferIn"
+            android:id="@+id/IdApagar"
+            app:layout_constraintTop_toBottomOf="@id/IdEncender"
+            app:layout_constraintEnd_toStartOf="@id/IdEncender"
             />
     <Button
+            android:text="Derecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/IdDerecha"
+            app:layout_constraintTop_toBottomOf="@id/IdEncender"
+            app:layout_constraintStart_toEndOf="@id/IdEncender"
+    />
+    <Button
+            android:text="Abajo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/IdAbajo"
+            app:layout_constraintTop_toBottomOf="@id/IdDerecha"
+            app:layout_constraintStart_toEndOf="@id/IdApagar"
+    />
+    <TextView
+            android:text="Dato:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/IdBufferIn"
+            app:layout_constraintTop_toBottomOf="@id/IdAbajo"
+            android:layout_marginTop="24dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+    <Button
             android:text="Desconectar"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/IdDesconectar"
-    />
-  </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@id/IdBufferIn"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+  </android.support.constraint.ConstraintLayout>
+
 </LinearLayout>

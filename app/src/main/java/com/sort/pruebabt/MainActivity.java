@@ -1,5 +1,6 @@
 package com.sort.pruebabt;
 
+import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -7,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     JoystickView joystic;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,18 +76,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        IdEncender.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v)
-            {
-                MyConexionBT.write("1");
+        IdEncender.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch(motionEvent.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        MyConexionBT.write("1");
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                        MyConexionBT.write("0");
+                        return true;
+                }
+                return false;
             }
         });
 
-        IdApagar.setOnClickListener(new View.OnClickListener() {
+/*        IdApagar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 MyConexionBT.write("0");
             }
-        });
+        });*/
 
         IdDesconectar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
