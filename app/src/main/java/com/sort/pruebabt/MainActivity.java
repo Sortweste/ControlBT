@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import io.github.controlwear.virtual.joystick.android.JoystickView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private static final UUID BTMODULEUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     private static String address = null;
 
+    JoystickView joystic;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         IdApagar = (Button) findViewById(R.id.IdApagar);
         IdDesconectar = (Button) findViewById(R.id.IdDesconectar);
         IdBufferIn = (TextView) findViewById(R.id.IdBufferIn);
+        joystic = (JoystickView) findViewById(R.id.J1);
 
         bluetoothIn = new Handler() {
             public void handleMessage(android.os.Message msg) {
@@ -61,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
 
         btAdapter = BluetoothAdapter.getDefaultAdapter();
         VerificarEstadoBT();
+
+        joystic.setOnMoveListener(new JoystickView.OnMoveListener() {
+            @Override
+            public void onMove(int angle, int strength) {
+
+            }
+        });
 
         IdEncender.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)

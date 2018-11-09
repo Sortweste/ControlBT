@@ -6,11 +6,18 @@
         >
 
     <TextView
-            android:text="Dispositivos Vinculados"
+            android:text="@string/dispositivos_vinculados"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_centerHorizontal="true"
-            android:layout_alignParentTop="true" android:id="@+id/IdTitulo" android:layout_marginTop="50dp"
-            android:textSize="18sp" android:textStyle="bold"/>
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="150sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            android:textColor="#000"
+            android:textAlignment="center"
+            android:id="@+id/IdTitulo"
+            android:textSize="18sp" android:textStyle="bold" android:layout_marginStart="150sp"/>
     <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:layout_alignParentRight="true"
